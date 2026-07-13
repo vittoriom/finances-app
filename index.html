@@ -104,7 +104,7 @@
               <!-- Mockup Chart -->
               <div class="mockup-card chart-card">
                 <div class="chart-header">
-                  <span class="chart-title">Deterministic Wealth Projection (to Age 65)</span>
+                  <span class="chart-title">Projected Wealth Accumulation (to Age 65)</span>
                   <div class="chart-legend">
                     <span class="legend-item"><span class="legend-dot equity"></span> Equity Portfolio</span>
                     <span class="legend-item"><span class="legend-dot cash"></span> Cash reserves</span>
@@ -157,8 +157,8 @@
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon border-blue">📊</div>
-          <h3>Deterministic & Stochastic Projections</h3>
-          <p>Chart your path using target growth rates, or run 500+ path Monte Carlo simulations to see your portfolio's probability of survival under historical market volatility.</p>
+          <h3>Stochastic (Monte Carlo) Projections</h3>
+          <p>Run 500+ path Monte Carlo simulations to model market volatility, check your portfolio's survival probability, and identify key retirement milestones.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon border-green">💶</div>
@@ -345,6 +345,9 @@
               <li>In the dialog that appears, click the **Open** button.</li>
               <li>This registers an exception and the app will open normally via double-click next time!</li>
             </ol>
+            <p style="margin-top: 16px;"><strong>Developer Terminal Workaround:</strong></p>
+            <p>Alternatively, you can open your terminal and run the following command to remove the macOS quarantine flag directly:</p>
+            <pre style="background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; margin-top: 8px; overflow-x: auto; font-family: monospace; font-size: 0.85rem; color: var(--color-blue);"><code style="user-select: all;">xattr -d com.apple.quarantine /Applications/EU\ Financial\ Planner.app</code></pre>
           </div>
         </div>
       </div>
