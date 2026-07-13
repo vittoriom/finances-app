@@ -1,13 +1,83 @@
 /* ============================================================
    EU Financial Planner Landing Page JavaScript
-   Latest Release Fetching + Live FIRE Simulator
+   Latest Release Fetching + Live FIRE Simulator + I18n
    ============================================================ */
 
+let currentLang = 'en';
+
 document.addEventListener('DOMContentLoaded', () => {
+  initI18n();
   initReleaseFetcher();
   initFIRESimulator();
   initAccordion();
 });
+
+// ============================================================
+// 0. I18n Localization Engine
+// ============================================================
+function initI18n() {
+  const savedLang = localStorage.getItem('lang');
+  const browserLang = navigator.language || navigator.userLanguage;
+  const defaultLang = browserLang.startsWith('it') ? 'it' : 'en';
+  currentLang = savedLang || defaultLang;
+
+  updateLangToggleUI();
+  applyTranslations();
+
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.getAttribute('data-lang');
+      if (selectedLang !== currentLang) {
+        currentLang = selectedLang;
+        localStorage.setItem('lang', currentLang);
+        updateLangToggleUI();
+        applyTranslations();
+        
+        // Re-run the simulator update so its dynamic status text and format is refreshed
+        if (typeof window.calculateProjectionsGlobal === 'function') {
+          window.calculateProjectionsGlobal();
+        }
+        // Re-run the release fetcher so its dynamic text is updated
+        if (typeof window.updateReleaseButtonText === 'function') {
+          window.updateReleaseButtonText();
+        }
+      }
+    });
+  });
+}
+
+function updateLangToggleUI() {
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    if (btn.getAttribute('data-lang') === currentLang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+function applyTranslations() {
+  const elements = document.querySelectorAll('[data-i18n]');
+  const langData = window.translations[currentLang] || window.translations['en'];
+  
+  elements.forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (langData[key]) {
+      el.innerHTML = langData[key];
+    }
+  });
+
+  // Update meta tags
+  const descriptionMeta = document.querySelector('meta[name="description"]');
+  if (descriptionMeta && langData['meta-desc']) {
+    descriptionMeta.setAttribute('content', langData['meta-desc']);
+  }
+  if (langData['meta-title']) {
+    document.title = langData['meta-title'];
+  }
+}
 
 // ============================================================
 // 1. GitHub API Release Fetcher
@@ -21,6 +91,14 @@ async function initReleaseFetcher() {
   const repoName = 'finances-app';
   const fallbackUrl = `https://github.com/${repoOwner}/${repoName}/releases/latest`;
 
+  let latestReleaseName = '';
+  let useFallback = true;
+  let downloadUrl = fallbackUrl;
+
+  // Set initial localized checking text
+  const langData = window.translations[currentLang] || window.translations['en'];
+  if (downloadSubtext) downloadSubtext.textContent = langData['release-checking'];
+
   try {
     const res = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`);
     if (!res.ok) throw new Error('Failed to fetch from GitHub API');
@@ -32,26 +110,32 @@ async function initReleaseFetcher() {
     const dmgAsset = assets.find(asset => asset.name.toLowerCase().endsWith('.dmg'));
     
     if (dmgAsset) {
-      const downloadUrl = dmgAsset.browser_download_url;
-      
-      // Update CTAs
-      if (downloadBtn) downloadBtn.href = downloadUrl;
-      if (navDownloadBtn) navDownloadBtn.href = downloadUrl;
-      if (downloadSubtext) {
-        downloadSubtext.textContent = `Download latest version: ${data.name || data.tag_name} (macOS)`;
-      }
-    } else {
-      // Fallback if release exists but no DMG is found yet
-      if (downloadBtn) downloadBtn.href = fallbackUrl;
-      if (navDownloadBtn) navDownloadBtn.href = fallbackUrl;
-      if (downloadSubtext) downloadSubtext.textContent = 'View releases on GitHub';
+      downloadUrl = dmgAsset.browser_download_url;
+      latestReleaseName = data.name || data.tag_name;
+      useFallback = false;
     }
   } catch (error) {
     console.warn('API Error, falling back to release page url:', error);
-    if (downloadBtn) downloadBtn.href = fallbackUrl;
-    if (navDownloadBtn) navDownloadBtn.href = fallbackUrl;
-    if (downloadSubtext) downloadSubtext.textContent = 'View releases on GitHub';
   }
+
+  // Update function to be re-run on language switch
+  window.updateReleaseButtonText = () => {
+    const currentLangData = window.translations[currentLang] || window.translations['en'];
+    
+    if (downloadBtn) downloadBtn.href = downloadUrl;
+    if (navDownloadBtn) navDownloadBtn.href = downloadUrl;
+    
+    if (downloadSubtext) {
+      if (useFallback) {
+        downloadSubtext.textContent = currentLangData['release-view-github'];
+      } else {
+        downloadSubtext.textContent = currentLangData['release-latest'].replace('{version}', latestReleaseName);
+      }
+    }
+  };
+
+  // Run immediately
+  window.updateReleaseButtonText();
 }
 
 // ============================================================
@@ -95,7 +179,8 @@ function initFIRESimulator() {
 
   // Helper formatting function
   const formatCurrency = (val) => {
-    return '€' + Math.round(val).toLocaleString('en-US');
+    const locale = currentLang === 'it' ? 'it-IT' : 'en-US';
+    return '€' + Math.round(val).toLocaleString(locale);
   };
 
   const calculateProjections = () => {
@@ -213,13 +298,14 @@ function initFIRESimulator() {
     intersectionDot.setAttribute('cy', intersectY);
 
     // Update Status Alert
+    const currentLangData = window.translations[currentLang] || window.translations['en'];
     if (fireAgePrecise !== null) {
       const displayAge = Math.ceil(fireAgePrecise);
       statusMessage.classList.remove('warning');
-      statusMessage.innerHTML = `🟢 You will reach Full FIRE at age <strong style="margin: 0 4px;">${displayAge}</strong>!`;
+      statusMessage.innerHTML = currentLangData['sim-status-success'].replace('{age}', displayAge);
     } else {
       statusMessage.classList.add('warning');
-      statusMessage.innerHTML = `⚠️ Your savings rates won't cross the Full FIRE line before age 90. Try raising savings or expected returns.`;
+      statusMessage.innerHTML = currentLangData['sim-status-fail'];
     }
 
     // Update X/Y Axis Labels
@@ -228,7 +314,10 @@ function initFIRESimulator() {
     xLabelEnd.textContent = maxAge;
 
     const scaleToLabel = (val) => {
-      if (val >= 1000000) return '€' + (val / 1000000).toFixed(1) + 'M';
+      if (val >= 1000000) {
+        const formatted = (val / 1000000).toFixed(1);
+        return '€' + (currentLang === 'it' ? formatted.replace('.', ',') : formatted) + 'M';
+      }
       if (val >= 1000) return '€' + Math.round(val / 1000) + 'k';
       return '€' + val;
     };
@@ -249,6 +338,9 @@ function initFIRESimulator() {
 
   // Run initial calculation
   calculateProjections();
+
+  // Export globally to update on language switch
+  window.calculateProjectionsGlobal = calculateProjections;
 }
 
 // ============================================================
