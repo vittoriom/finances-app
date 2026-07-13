@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EU Financial Planner - A premium open-source personal finance and FIRE projection desktop app. Model scenarios, simulate Monte Carlo paths, and optimize tax-aware withdrawals.">
+  <title>EU Financial Planner — Your Portfolio, Projected</title>
+  <!-- Google Fonts: Outfit (Display) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Background Glow Accents -->
+  <div class="glow-sphere glow-sphere-1"></div>
+  <div class="glow-sphere glow-sphere-2"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">📊</span>
+        <span class="logo-text">EU Financial Planner</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#simulator">Simulator</a>
+        <a href="#install">Install Guide</a>
+        <a href="https://github.com/vittoriom/finances-app" target="_blank" class="github-link">
+          <svg class="icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.67-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+          </svg>
+          GitHub
+        </a>
+      </nav>
+      <div class="nav-cta">
+        <a id="nav-download-btn" href="https://github.com/vittoriom/finances-app/releases/latest" class="btn btn-primary btn-sm">Download App</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge">✨ Local-First & Open Source</div>
+        <h1>Your Portfolio, Projected.<br><span class="gradient-text">Tax-Aware & Private.</span></h1>
+        <p class="hero-subtitle">Model liabilities and life events, simulate Monte Carlo paths, and track net-worth milestones against tax-aware withdrawal targets on macOS.</p>
+        
+        <div class="cta-group">
+          <a id="download-btn" href="https://github.com/vittoriom/finances-app/releases/latest" class="btn btn-primary btn-lg">
+            <span class="btn-text">Download for macOS</span>
+            <span id="download-subtext" class="btn-subtext">Checking latest release...</span>
+          </a>
+          <a href="#simulator" class="btn btn-secondary btn-lg">Try Online Simulator</a>
+        </div>
+      </div>
+
+      <!-- App Interface Mockup -->
+      <div class="app-mockup-wrapper">
+        <div class="app-mockup">
+          <div class="mockup-header">
+            <div class="mockup-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="mockup-title">EU Financial Planner — Active Scenario: Baseline</div>
+          </div>
+          <div class="mockup-body">
+            <!-- Sidebar -->
+            <aside class="mockup-sidebar">
+              <div class="sidebar-brand">📊 Dashboard</div>
+              <ul class="sidebar-menu">
+                <li class="active"><span>📈</span> Projections</li>
+                <li><span>💸</span> Assets & Income</li>
+                <li><span>🏠</span> Liabilities</li>
+                <li><span>🎯</span> Milestones</li>
+                <li><span>⚙️</span> Settings</li>
+              </ul>
+            </aside>
+            <!-- Main Content Area -->
+            <main class="mockup-main">
+              <div class="mockup-grid">
+                <!-- Stats Row -->
+                <div class="mockup-card stat-card border-blue">
+                  <span class="stat-label">Net Worth Target</span>
+                  <span class="stat-value">€1,250,000</span>
+                  <span class="stat-meta text-positive">↑ €42,000 / year saved</span>
+                </div>
+                <div class="mockup-card stat-card border-green">
+                  <span class="stat-label">FIRE Milestone</span>
+                  <span class="stat-value">Coast FIRE Reached</span>
+                  <span class="stat-meta text-green">Age 38 • 68% Confidence</span>
+                </div>
+                <div class="mockup-card stat-card border-violet">
+                  <span class="stat-label">Stochastic Success</span>
+                  <span class="stat-value">84.2%</span>
+                  <span class="stat-meta text-secondary">500 Monte Carlo runs</span>
+                </div>
+              </div>
+              <!-- Mockup Chart -->
+              <div class="mockup-card chart-card">
+                <div class="chart-header">
+                  <span class="chart-title">Deterministic Wealth Projection (to Age 65)</span>
+                  <div class="chart-legend">
+                    <span class="legend-item"><span class="legend-dot equity"></span> Equity Portfolio</span>
+                    <span class="legend-item"><span class="legend-dot cash"></span> Cash reserves</span>
+                    <span class="legend-item"><span class="legend-dot target"></span> FIRE Target</span>
+                  </div>
+                </div>
+                <!-- Mini visual representation of a chart -->
+                <div class="mockup-chart-visual">
+                  <svg viewBox="0 0 600 180" class="mockup-svg-graph">
+                    <defs>
+                      <linearGradient id="mockGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="hsl(217, 91%, 60%)" stop-opacity="0.3"></stop>
+                        <stop offset="100%" stop-color="hsl(217, 91%, 60%)" stop-opacity="0.0"></stop>
+                      </linearGradient>
+                    </defs>
+                    <!-- Grid Lines -->
+                    <line x1="0" y1="140" x2="600" y2="140" stroke="var(--border-subtle)"></line>
+                    <line x1="0" y1="90" x2="600" y2="90" stroke="var(--border-subtle)"></line>
+                    <line x1="0" y1="40" x2="600" y2="40" stroke="var(--border-subtle)"></line>
+                    
+                    <!-- Fire Target Line -->
+                    <line x1="0" y1="50" x2="600" y2="50" stroke="hsl(280, 85%, 65%)" stroke-width="1.5" stroke-dasharray="4 4"></line>
+                    
+                    <!-- Filled Area -->
+                    <path d="M 0 170 Q 150 160 300 120 T 600 30 L 600 180 L 0 180 Z" fill="url(#mockGradient)"></path>
+                    <!-- Line -->
+                    <path d="M 0 170 Q 150 160 300 120 T 600 30" fill="none" stroke="hsl(217, 91%, 60%)" stroke-width="2.5"></path>
+                    
+                    <!-- Crossing point marker -->
+                    <circle cx="430" cy="73" r="5" fill="hsl(142, 71%, 45%)"></circle>
+                    <text x="440" y="70" fill="var(--text-primary)" font-size="9" font-family="var(--font-display)">FIRE: Age 52</text>
+                  </svg>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Engineered for Precision</h2>
+        <p class="section-subtitle">Unlike simple calculators, our engine runs multi-scenario analysis tailored for European tax regimes.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon border-blue">📊</div>
+          <h3>Deterministic & Stochastic Projections</h3>
+          <p>Chart your path using target growth rates, or run 500+ path Monte Carlo simulations to see your portfolio's probability of survival under historical market volatility.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon border-green">💶</div>
+          <h3>Tax-Aware Withdrawal Math</h3>
+          <p>Specifically models European capital gains rules (like Germany's Sparerpauschbetrag and Teilfreistellung/ETF exemptions) to calculate optimal liquidation sequence and net cashflows.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon border-violet">🏠</div>
+          <h3>Liability & Cashflow Mapping</h3>
+          <p>Model mortgages, career breaks, child care costs, state pensions, or target inheritances with custom start/end ages. Watch your retirement age adjust dynamically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon border-orange">🛡️</div>
+          <h3>100% Local Privacy</h3>
+          <p>No account creation. No cloud syncing. Your financial data is stored locally in your browser's index/localStorage database and never leaves your computer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FIRE Simulator Section -->
+  <section id="simulator" class="simulator-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Interactive Sandbox</h2>
+        <p class="section-subtitle">Test basic assumptions below to see how our projection engine maps your retirement curve in real-time.</p>
+      </div>
+
+      <div class="simulator-card">
+        <div class="simulator-layout">
+          <!-- Control Panel -->
+          <div class="simulator-controls">
+            <div class="control-group">
+              <label for="input-networth">Current Net Worth (€)</label>
+              <div class="input-wrapper">
+                <input type="range" id="input-networth" min="0" max="1000000" step="10000" value="100000">
+                <span class="value-display" id="display-networth">€100,000</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="input-savings">Monthly Savings (€)</label>
+              <div class="input-wrapper">
+                <input type="range" id="input-savings" min="0" max="10000" step="100" value="1500">
+                <span class="value-display" id="display-savings">€1,500</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="input-expenses">Target Retirement Expenses (Annual €)</label>
+              <div class="input-wrapper">
+                <input type="range" id="input-expenses" min="10000" max="200000" step="2000" value="40000">
+                <span class="value-display" id="display-expenses">€40,000</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="input-return">Expected Real Return (%)</label>
+              <div class="input-wrapper">
+                <input type="range" id="input-return" min="1" max="12" step="0.5" value="6">
+                <span class="value-display" id="display-return">6%</span>
+              </div>
+            </div>
+
+            <div class="control-group-row">
+              <div class="control-subgroup">
+                <label for="input-age">Current Age</label>
+                <input type="number" id="input-age" min="18" max="79" value="30">
+              </div>
+              <div class="control-subgroup">
+                <label for="input-targetage">Retirement Age</label>
+                <input type="number" id="input-targetage" min="40" max="90" value="55">
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Chart & Results -->
+          <div class="simulator-display">
+            <div class="display-header">
+              <div class="result-tile">
+                <span class="result-label">FIRE Target Net Worth</span>
+                <span class="result-value text-blue" id="val-fire-target">€1,000,000</span>
+              </div>
+              <div class="result-tile">
+                <span class="result-label">Projected NW at Age <span id="val-proj-age-label">55</span></span>
+                <span class="result-value text-green" id="val-proj-nw">€985,420</span>
+              </div>
+            </div>
+
+            <!-- Interactive SVG Chart -->
+            <div class="chart-canvas-wrapper">
+              <div class="chart-y-axis-labels">
+                <span id="y-label-max">€1M</span>
+                <span id="y-label-mid">€500k</span>
+                <span id="y-label-min">€0</span>
+              </div>
+              <div class="chart-canvas-container">
+                <svg id="live-chart" width="100%" height="240" viewBox="0 0 500 240" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="hsl(217, 91%, 60%)" stop-opacity="0.25"></stop>
+                      <stop offset="100%" stop-color="hsl(217, 91%, 60%)" stop-opacity="0.0"></stop>
+                    </linearGradient>
+                  </defs>
+                  
+                  <!-- Grid lines -->
+                  <g class="chart-grid-lines">
+                    <line x1="0" y1="200" x2="500" y2="200" stroke="var(--border-subtle)"></line>
+                    <line x1="0" y1="120" x2="500" y2="120" stroke="var(--border-subtle)"></line>
+                    <line x1="0" y1="40" x2="500" y2="40" stroke="var(--border-subtle)"></line>
+                  </g>
+                  
+                  <!-- Reference FIRE Target Line -->
+                  <line id="ref-target-line" x1="0" y1="80" x2="500" y2="80" stroke="hsl(280, 85%, 65%)" stroke-width="1.5" stroke-dasharray="5 5"></line>
+                  
+                  <!-- Area path under the curve -->
+                  <path id="chart-area" d="" fill="url(#chartGradient)"></path>
+                  
+                  <!-- Line path representing net worth -->
+                  <path id="chart-line" d="" fill="none" stroke="hsl(217, 91%, 60%)" stroke-width="3"></path>
+
+                  <!-- Highlight Target Intersection Marker -->
+                  <circle id="chart-intersection-dot" cx="-10" cy="-10" r="6" fill="hsl(142, 71%, 45%)" stroke="var(--bg-card)" stroke-width="2"></circle>
+                </svg>
+              </div>
+              <div class="chart-x-axis-labels">
+                <span id="x-label-start">30</span>
+                <span id="x-label-mid">42</span>
+                <span id="x-label-end">55</span>
+              </div>
+            </div>
+            <div id="chart-status-message" class="chart-status">
+              🟢 You will reach Full FIRE at age <strong id="val-fire-achieved-age">54</strong>!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Guide Section -->
+  <section id="install" class="install-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>macOS Installation Guide</h2>
+        <p class="section-subtitle">Since the EU Financial Planner is a self-built open-source app, follow these steps to open it securely on macOS.</p>
+      </div>
+
+      <div class="install-accordion">
+        <div class="accordion-item active">
+          <div class="accordion-trigger">
+            <span class="step-num">01</span>
+            <h3>Download the Installer</h3>
+            <span class="accordion-chevron">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Click the main download button at the top of this page or download the latest `.dmg` installer directly from the <a href="https://github.com/vittoriom/finances-app/releases" target="_blank">Releases Page</a>.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="step-num">02</span>
+            <h3>Install to Applications</h3>
+            <span class="accordion-chevron">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Double-click the downloaded `.dmg` file to mount it, then drag the **EU Financial Planner.app** icon directly into your **Applications** folder.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="step-num">03</span>
+            <h3>Bypass Gatekeeper (First Launch Only)</h3>
+            <span class="accordion-chevron">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Because the app is compiled directly from source and is unsigned, macOS will block launch with an "Unidentified Developer" prompt on double-click.</p>
+            <p><strong>To open it:</strong></p>
+            <ol>
+              <li>Go to your **Applications** folder in Finder.</li>
+              <li>Right-click (or Control-click) **EU Financial Planner.app** and select **Open**.</li>
+              <li>In the dialog that appears, click the **Open** button.</li>
+              <li>This registers an exception and the app will open normally via double-click next time!</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          📊 EU Financial Planner
+          <p>Private, offline-first personal finance and retirement projection modeling.</p>
+        </div>
+        <div class="footer-meta">
+          Released under MIT License. Open Source on <a href="https://github.com/vittoriom/finances-app" target="_blank">GitHub</a>.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
