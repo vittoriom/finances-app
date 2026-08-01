@@ -236,8 +236,10 @@ a:hover {
   color: var(--text-primary);
 }
 
-.logo-icon {
-  font-size: 1.5rem;
+.logo-img {
+  display: block;
+  object-fit: contain;
+  border-radius: 22%;
 }
 
 .logo-text {
@@ -911,6 +913,26 @@ a:hover {
   margin-bottom: 0;
 }
 
+.install-step-flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.install-app-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 22.37%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.install-step-text {
+  flex-grow: 1;
+}
+
 .accordion-content ol {
   padding-left: 20px;
   margin-top: 8px;
@@ -964,6 +986,18 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.footer-brand-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-img {
+  display: block;
+  object-fit: contain;
+  border-radius: 22%;
 }
 
 .footer-brand p {

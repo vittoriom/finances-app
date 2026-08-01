@@ -1,5 +1,5 @@
 /* ============================================================
-   EU Financial Planner Landing Page JavaScript
+   Wealth Horizon Landing Page JavaScript
    Latest Release Fetching + Live FIRE Simulator + I18n
    ============================================================ */
 

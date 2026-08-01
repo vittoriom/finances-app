@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EU Financial Planner - A premium open-source personal finance and FIRE projection desktop app. Chat with your AI assistant, model scenarios, and simulate Monte Carlo paths locally.">
-  <title>EU Financial Planner — Your Portfolio, Projected</title>
+  <meta name="description" content="Wealth Horizon - A premium open-source personal finance and FIRE projection desktop app. Chat with your AI assistant, model scenarios, and simulate Monte Carlo paths locally.">
+  <title>Wealth Horizon — Your Portfolio, Projected</title>
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
   <!-- Google Fonts: Outfit (Display) & Inter (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +24,8 @@
   <header class="navbar">
     <div class="navbar-container">
       <a href="#" class="logo">
-        <span class="logo-icon">📊</span>
-        <span class="logo-text">EU Financial Planner</span>
+        <img src="assets/logo.png" alt="Wealth Horizon Logo" class="logo-img" width="28" height="28">
+        <span class="logo-text">Wealth Horizon</span>
       </a>
       <nav class="nav-links">
         <a href="#features" data-i18n="nav-features">Features</a>
@@ -73,7 +76,7 @@
               <span class="dot yellow"></span>
               <span class="dot green"></span>
             </div>
-            <div class="mockup-title" data-i18n="mockup-title">EU Financial Planner — Active Scenario: Baseline</div>
+            <div class="mockup-title" data-i18n="mockup-title">Wealth Horizon — Active Scenario: Baseline</div>
           </div>
           <div class="mockup-body">
             <!-- Sidebar -->
@@ -310,7 +313,7 @@
     <div class="container">
       <div class="section-header text-center">
         <h2 data-i18n="install-title">macOS Installation Guide</h2>
-        <p class="section-subtitle" data-i18n="install-subtitle">Since the EU Financial Planner is a self-built open-source app, follow these steps to open it securely on macOS.</p>
+        <p class="section-subtitle" data-i18n="install-subtitle">Since Wealth Horizon is a self-built open-source app, follow these steps to open it securely on macOS.</p>
       </div>
 
       <div class="install-accordion">
@@ -332,7 +335,12 @@
             <span class="accordion-chevron">▼</span>
           </div>
           <div class="accordion-content">
-            <p data-i18n="install-step2-desc">Double-click the downloaded <code>.dmg</code> file to mount it, then drag the <strong>EU Financial Planner.app</strong> icon directly into your <strong>Applications</strong> folder.</p>
+            <div class="install-step-flex">
+              <img src="assets/icon.png" alt="Wealth Horizon App Icon" class="install-app-icon" width="64" height="64">
+              <div class="install-step-text">
+                <p data-i18n="install-step2-desc">Double-click the downloaded <code>.dmg</code> file to mount it, then drag the <strong>Wealth Horizon.app</strong> icon directly into your <strong>Applications</strong> folder.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -347,13 +355,13 @@
             <p><strong data-i18n="install-step3-desc2">To open it:</strong></p>
             <ol>
               <li data-i18n="install-step3-li1">Go to your <strong>Applications</strong> folder in Finder.</li>
-              <li data-i18n="install-step3-li2">Right-click (or Control-click) <strong>EU Financial Planner.app</strong> and select <strong>Open</strong>.</li>
+              <li data-i18n="install-step3-li2">Right-click (or Control-click) <strong>Wealth Horizon.app</strong> and select <strong>Open</strong>.</li>
               <li data-i18n="install-step3-li3">In the dialog that appears, click the <strong>Open</strong> button.</li>
               <li data-i18n="install-step3-li4">This registers an exception and the app will open normally via double-click next time!</li>
             </ol>
             <p style="margin-top: 16px;"><strong data-i18n="install-step3-desc3">Developer Terminal Workaround:</strong></p>
             <p data-i18n="install-step3-desc4">Alternatively, you can open your terminal and run the following command to remove the macOS quarantine flag directly:</p>
-            <pre style="background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; margin-top: 8px; overflow-x: auto; font-family: monospace; font-size: 0.85rem; color: var(--color-blue);"><code style="user-select: all;">xattr -d com.apple.quarantine /Applications/EU\ Financial\ Planner.app</code></pre>
+            <pre style="background: var(--bg-sidebar); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; margin-top: 8px; overflow-x: auto; font-family: monospace; font-size: 0.85rem; color: var(--color-blue);"><code style="user-select: all;">xattr -d com.apple.quarantine /Applications/Wealth\ Horizon.app</code></pre>
           </div>
         </div>
       </div>
@@ -365,11 +373,14 @@
     <div class="container">
       <div class="footer-layout">
         <div class="footer-brand">
-          📊 EU Financial Planner
+          <div class="footer-brand-title">
+            <img src="assets/logo.png" alt="Wealth Horizon Logo" class="footer-logo-img" width="20" height="20">
+            <span>Wealth Horizon</span>
+          </div>
           <p data-i18n="footer-desc">Private, offline-first personal finance and retirement projection modeling.</p>
         </div>
         <div class="footer-meta" data-i18n="footer-copyright">
-          © 2026 EU Financial Planner. All rights reserved.
+          © 2026 Wealth Horizon. All rights reserved.
         </div>
       </div>
     </div>
