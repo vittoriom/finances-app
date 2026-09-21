@@ -30,6 +30,7 @@
       <nav class="nav-links">
         <a href="#features" data-i18n="nav-features">Features</a>
         <a href="#simulator" data-i18n="nav-simulator">Simulator</a>
+        <a href="#compare" data-i18n="nav-compare">Compare</a>
         <a href="#install" data-i18n="nav-install">Install Guide</a>
         <a href="https://github.com/vittoriom/finances-app" target="_blank" class="github-link">
           <svg class="icon" viewBox="0 0 24 24" width="20" height="20">
@@ -308,6 +309,88 @@
     </div>
   </section>
 
+  <!-- Comparison Matrix Section -->
+  <section id="compare" class="compare-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="badge" data-i18n="compare-badge">✨ Uncompromising Architecture</div>
+        <h2 data-i18n="compare-title">Why Wealth Horizon?</h2>
+        <p class="section-subtitle" data-i18n="compare-subtitle">
+          Compare how Wealth Horizon contrasts with brittle DIY spreadsheets and privacy-invasive cloud subscription services.
+        </p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th data-i18n="col-feature">Capability</th>
+              <th class="highlight-col" data-i18n="col-wealthhorizon">Wealth Horizon</th>
+              <th data-i18n="col-spreadsheets">DIY Spreadsheets (Excel / Sheets)</th>
+              <th data-i18n="col-cloudsaas">Cloud SaaS (Monarch / Copilot)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong data-i18n="comp-engine">Simulation & Forecasting</strong></td>
+              <td class="highlight-col">🎲 <span data-i18n="comp-engine-wh">500+ stochastic Monte Carlo paths, Mulberry32 PRNG & real-terms Fisher deflation</span></td>
+              <td>📉 <span data-i18n="comp-engine-ss">Static linear compounding or complex, fragile VBA/macros</span></td>
+              <td>📊 <span data-i18n="comp-engine-cs">Basic historical averages or simplistic linear projections</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-ai">AI & Agent Extensibility</strong></td>
+              <td class="highlight-col">🔌 <span data-i18n="comp-ai-wh">Native Model Context Protocol (MCP) server, dedicated CLI & in-app assistant</span></td>
+              <td>❌ <span data-i18n="comp-ai-ss">Manual copy-pasting to web chat; no structured state mutation</span></td>
+              <td>🔒 <span data-i18n="comp-ai-cs">Closed proprietary platform with no CLI or agentic tool access</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-scenarios">What-If Scenarios & Branching</strong></td>
+              <td class="highlight-col">🔀 <span data-i18n="comp-scenarios-wh">Multi-scenario branching with smart inheritance; compare alternative careers & markets side-by-side</span></td>
+              <td>📑 <span data-i18n="comp-scenarios-ss">Requires duplicating entire workbooks; prone to formula desync and version clutter</span></td>
+              <td>➖ <span data-i18n="comp-scenarios-cs">Single linear baseline; no branching or multi-scenario comparison</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-timeline">Timeline Events & Cash Flow</strong></td>
+              <td class="highlight-col">🗓️ <span data-i18n="comp-timeline-wh">Dynamic life events (mortgages, sabbaticals, windfalls) with milestone-triggered start/end ages</span></td>
+              <td>📅 <span data-i18n="comp-timeline-ss">Manual timeline columns; breaks when assumptions change or retirement shifts</span></td>
+              <td>⏮️ <span data-i18n="comp-timeline-cs">Backward-looking past expenses; lacks dynamic forward liability modeling</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-allocation">Portfolio Allocation Strategies</strong></td>
+              <td class="highlight-col">⚖️ <span data-i18n="comp-allocation-wh">Dynamic glide paths, automatic weight interpolation, and 4-pillar asset waterfall guidance</span></td>
+              <td>📐 <span data-i18n="comp-allocation-ss">Static asset percentages; challenging to model multi-decade equity-to-bond glide paths</span></td>
+              <td>🥧 <span data-i18n="comp-allocation-cs">Static portfolio pie charts without forward rebalancing or glide-path automation</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-goals">Goals & Pathfinder Solver</strong></td>
+              <td class="highlight-col">🎯 <span data-i18n="comp-goals-wh">Goal Pathfinder bisection solver (auto-solves savings/age) + 4-tier FIRE milestones</span></td>
+              <td>🔍 <span data-i18n="comp-goals-ss">Basic 4% rule cell formulas or clunky, single-variable Excel Goal Seek</span></td>
+              <td>📈 <span data-i18n="comp-goals-cs">Generic progress bars towards static net worth figures</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-tax">Tax & Drawdown Modeling</strong></td>
+              <td class="highlight-col">🇩🇪 <span data-i18n="comp-tax-wh">Multi-jurisdiction tax engine (Vorabpauschale, Dutch Box 3, capital gains gross-up)</span></td>
+              <td>🧮 <span data-i18n="comp-tax-ss">Manual tax formula maintenance; breaks across tax law changes</span></td>
+              <td>❌ <span data-i18n="comp-tax-cs">Gross estimates with no cross-border European tax modeling</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-privacy">Data Privacy & Sovereignty</strong></td>
+              <td class="highlight-col">🛡️ <span data-i18n="comp-privacy-wh">100% on-device, zero telemetry, no accounts required; you control storage</span></td>
+              <td>📄 <span data-i18n="comp-privacy-ss">Stored in personal files or cloud drives; prone to accidental sharing or account lockout</span></td>
+              <td>⚠️ <span data-i18n="comp-privacy-cs">Requires bank credentials (Plaid/MX); full net worth & transaction history stored on SaaS servers</span></td>
+            </tr>
+            <tr>
+              <td><strong data-i18n="comp-pricing">Cost & Maintenance</strong></td>
+              <td class="highlight-col">✨ <span data-i18n="comp-pricing-wh">100% Free, zero upkeep (No subscriptions, no paywalls)</span></td>
+              <td>⏱️ <span data-i18n="comp-pricing-ss">Free, but requires heavy manual maintenance and formula debugging</span></td>
+              <td>💸 <span data-i18n="comp-pricing-cs">$100 – $180 / year recurring subscriptions</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- Installation Guide Section -->
   <section id="install" class="install-section">
     <div class="container">
@@ -420,6 +503,7 @@
           <ul class="footer-links-list">
             <li><a href="#features" data-i18n="footer-nav-features">App Features</a></li>
             <li><a href="#simulator" data-i18n="footer-nav-simulator">Interactive Simulator</a></li>
+            <li><a href="#compare" data-i18n="footer-nav-compare">Why Wealth Horizon</a></li>
             <li><a href="#install" data-i18n="footer-nav-install">macOS Install Guide</a></li>
             <li><a href="https://github.com/vittoriom/finances-app" target="_blank" rel="noopener noreferrer" data-i18n="footer-nav-source">GitHub Repository</a></li>
             <li><a href="https://github.com/vittoriom/finances-app/releases" target="_blank" rel="noopener noreferrer" data-i18n="footer-nav-releases">Releases & Changelog</a></li>
