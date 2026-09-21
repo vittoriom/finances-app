@@ -1036,6 +1036,115 @@ th.highlight-col {
 }
 
 /* ============================================================
+   FAQ Accordion Section
+   ============================================================ */
+.faq-section {
+  padding: 100px 0;
+  border-top: 1px solid var(--border-subtle);
+  background: radial-gradient(100% 50% at 50% 50%, hsla(217, 91%, 60%, 0.04) 0%, transparent 100%);
+}
+
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.faq-item:hover {
+  border-color: var(--border-hover);
+}
+
+.faq-item-header {
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-question {
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.faq-toggle-icon {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-blue);
+  margin-left: 16px;
+  min-width: 20px;
+  text-align: center;
+  user-select: none;
+  transition: color var(--transition-base);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 26px 22px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  border-top: 1px dashed var(--border-subtle);
+  margin-top: -4px;
+  padding-top: 16px;
+}
+
+.faq-answer p {
+  margin-bottom: 12px;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer code {
+  font-family: monospace;
+  font-size: 0.85em;
+  background-color: hsla(217, 91%, 60%, 0.12);
+  color: var(--color-blue);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid hsla(217, 91%, 60%, 0.2);
+}
+
+.faq-answer strong {
+  color: var(--text-primary);
+}
+
+.faq-answer em {
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.faq-item.active {
+  border-color: var(--color-blue);
+  box-shadow: 0 4px 20px hsla(217, 91%, 60%, 0.08);
+}
+
+.faq-item.active .faq-toggle-icon {
+  color: var(--color-violet);
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* ============================================================
    Footer
    ============================================================ */
 .footer {

@@ -32,6 +32,7 @@
         <a href="#simulator" data-i18n="nav-simulator">Simulator</a>
         <a href="#compare" data-i18n="nav-compare">Compare</a>
         <a href="#install" data-i18n="nav-install">Install Guide</a>
+        <a href="#faq" data-i18n="nav-faq">FAQ</a>
         <a href="https://github.com/vittoriom/finances-app" target="_blank" class="github-link">
           <svg class="icon" viewBox="0 0 24 24" width="20" height="20">
             <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.67-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
@@ -368,6 +369,12 @@
               <td>📈 <span data-i18n="comp-goals-cs">Generic progress bars towards static net worth figures</span></td>
             </tr>
             <tr>
+              <td><strong data-i18n="comp-education">Financial Education & Guidance</strong></td>
+              <td class="highlight-col">🧭 <span data-i18n="comp-education-wh">7-step interactive tour, beginner/advanced profiler wizard, 4-pillar waterfall guidance & contextual AI financial explanations</span></td>
+              <td>📚 <span data-i18n="comp-education-ss">Zero guidance; requires deep prerequisite financial knowledge and manual formula design</span></td>
+              <td>📰 <span data-i18n="comp-education-cs">Generic blog articles and budgeting tips; lacks structured FIRE education or actionable portfolio guidance</span></td>
+            </tr>
+            <tr>
               <td><strong data-i18n="comp-tax">Tax & Drawdown Modeling</strong></td>
               <td class="highlight-col">🇩🇪 <span data-i18n="comp-tax-wh">Multi-jurisdiction tax engine (Vorabpauschale, Dutch Box 3, capital gains gross-up)</span></td>
               <td>🧮 <span data-i18n="comp-tax-ss">Manual tax formula maintenance; breaks across tax law changes</span></td>
@@ -451,6 +458,87 @@
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="badge" data-i18n="faq-badge">Got Questions?</div>
+        <h2 data-i18n="faq-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle" data-i18n="faq-subtitle">
+          Everything you need to know about privacy, Monte Carlo forecasting, taxes, and AI integrations.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <div class="faq-item-header">
+            <h3 class="faq-question" data-i18n="faq-q1">Where is my financial data stored, and is it private?</h3>
+            <span class="faq-toggle-icon">−</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq-a1">
+            100% of your financial data stays strictly on your device. Wealth Horizon requires no user account, no cloud login, and never connects to external banking aggregators (like Plaid or Yodlee). Your portfolio, assets, liabilities, and scenario models are stored in your local browser storage or desktop app container. You can also configure the optional <strong>Local File Synchronization</strong> to keep an unencrypted or encrypted JSON state file on your disk (or personal sync folder like Dropbox/iCloud) with zero telemetry.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-item-header">
+            <h3 class="faq-question" data-i18n="faq-q2">How does the Monte Carlo simulation work, and what are "real terms"?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq-a2">
+            Unlike simple calculators that assume flat, unrealistically linear compound growth, Wealth Horizon runs <strong>500+ stochastic Monte Carlo iterations</strong> using a deterministic PRNG (Mulberry32) to model market volatility and sequence-of-returns risk. Crucially, <strong>all projections are calculated in real terms</strong> (constant purchasing power). Market returns and future cash flows are deflated against inflation using the Fisher equation, meaning a €1,000,000 target at age 60 represents the exact same purchasing power as €1,000,000 today.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-item-header">
+            <h3 class="faq-question" data-i18n="faq-q3">What FIRE milestones and goals does Wealth Horizon track?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq-a3">
+            The engine automatically benchmarks your trajectory against four progressive FIRE tiers: <strong>Coast FIRE</strong> (investments will grow to full retirement without adding another euro), <strong>Lean FIRE</strong> (covering absolute baseline living expenses), <strong>Barista FIRE</strong> (semi-retirement covering gaps with part-time work), and <strong>Full FIRE</strong> (complete financial independence). Additionally, the built-in <strong>Goal Pathfinder</strong> uses numerical bisection search to instantly calculate the exact monthly savings or retirement age required to satisfy any custom net worth goal.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-item-header">
+            <h3 class="faq-question" data-i18n="faq-q4">How does the Model Context Protocol (MCP) server work?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq-a4">
+            Wealth Horizon bundles a standalone native MCP server (<code>wealth-horizon-mcp</code>) directly inside the macOS app bundle — requiring no Node.js installation or compilation. By pointing Claude Desktop, Cursor, or any MCP client to the binary and your local sync file, you can query your portfolio, inspect forecast statistics, and simulate what-if scenarios directly in natural language (with support for an optional <code>--read-only</code> flag).
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-item-header">
+            <h3 class="faq-question" data-i18n="faq-q5">How do what-if scenarios and inheritance work?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq-a5">
+            Wealth Horizon lets you create unlimited what-if scenarios branching off your baseline. Scenarios use clean inheritance: any field you don't explicitly override inherits seamlessly from your default inputs. You can compare a career transition, early sabbatical, market downturn, or property acquisition side-by-side against your base plan without corrupting your primary forecast or duplicating spreadsheets.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-item-header">
+            <h3 class="faq-question" data-i18n="faq-q6">How does Wealth Horizon handle taxes, glide paths, and liabilities?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-answer" data-i18n="faq-a6">
+            Wealth Horizon includes a tax-aware drawdown engine tailored for European investors, modeling mechanisms like the German <em>Vorabpauschale</em>, <em>Sparerpauschbetrag</em> / <em>Teilfreistellung</em>, Dutch Box 3, and capital gains tax gross-ups. On the asset side, it features dynamic equity-to-bond glide paths and an actionable <strong>4-Pillar waterfall framework</strong> (Emergency Reserve, Stability & Cash Flow, Medium-term Bonds, and Long-term Growth) ensuring upcoming liabilities are protected before equities are liquidated.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -505,6 +593,7 @@
             <li><a href="#simulator" data-i18n="footer-nav-simulator">Interactive Simulator</a></li>
             <li><a href="#compare" data-i18n="footer-nav-compare">Why Wealth Horizon</a></li>
             <li><a href="#install" data-i18n="footer-nav-install">macOS Install Guide</a></li>
+            <li><a href="#faq" data-i18n="footer-nav-faq">FAQ</a></li>
             <li><a href="https://github.com/vittoriom/finances-app" target="_blank" rel="noopener noreferrer" data-i18n="footer-nav-source">GitHub Repository</a></li>
             <li><a href="https://github.com/vittoriom/finances-app/releases" target="_blank" rel="noopener noreferrer" data-i18n="footer-nav-releases">Releases & Changelog</a></li>
           </ul>

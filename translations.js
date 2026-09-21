@@ -91,6 +91,11 @@ window.translations = {
     "comp-goals-ss": "Basic 4% rule cell formulas or clunky, single-variable Excel Goal Seek",
     "comp-goals-cs": "Generic progress bars towards static net worth figures",
     
+    "comp-education": "Financial Education & Guidance",
+    "comp-education-wh": "7-step interactive tour, beginner/advanced profiler wizard, 4-pillar waterfall guidance & contextual AI financial explanations",
+    "comp-education-ss": "Zero guidance; requires deep prerequisite financial knowledge and manual formula design",
+    "comp-education-cs": "Generic blog articles and budgeting tips; lacks structured FIRE education or actionable portfolio guidance",
+    
     "comp-tax": "Tax & Drawdown Modeling",
     "comp-tax-wh": "Multi-jurisdiction tax engine (Vorabpauschale, Dutch Box 3, capital gains gross-up)",
     "comp-tax-ss": "Manual tax formula maintenance; breaks across tax law changes",
@@ -134,7 +139,31 @@ window.translations = {
     "footer-nav-features": "App Features",
     "footer-nav-simulator": "Interactive Simulator",
     "footer-nav-compare": "Why Wealth Horizon",
+    /* FAQ */
+    "nav-faq": "FAQ",
+    "faq-badge": "Got Questions?",
+    "faq-title": "Frequently Asked Questions",
+    "faq-subtitle": "Everything you need to know about privacy, Monte Carlo forecasting, taxes, and AI integrations.",
+    "faq-q1": "Where is my financial data stored, and is it private?",
+    "faq-a1": "100% of your financial data stays strictly on your device. Wealth Horizon requires no user account, no cloud login, and never connects to external banking aggregators (like Plaid or Yodlee). Your portfolio, assets, liabilities, and scenario models are stored in your local browser storage or desktop app container. You can also configure the optional <strong>Local File Synchronization</strong> to keep an unencrypted or encrypted JSON state file on your disk (or personal sync folder like Dropbox/iCloud) with zero telemetry.",
+    
+    "faq-q2": "How does the Monte Carlo simulation work, and what are \"real terms\"?",
+    "faq-a2": "Unlike simple calculators that assume flat, unrealistically linear compound growth, Wealth Horizon runs <strong>500+ stochastic Monte Carlo iterations</strong> using a deterministic PRNG (Mulberry32) to model market volatility and sequence-of-returns risk. Crucially, <strong>all projections are calculated in real terms</strong> (constant purchasing power). Market returns and future cash flows are deflated against inflation using the Fisher equation, meaning a €1,000,000 target at age 60 represents the exact same purchasing power as €1,000,000 today.",
+    
+    "faq-q3": "What FIRE milestones and goals does Wealth Horizon track?",
+    "faq-a3": "The engine automatically benchmarks your trajectory against four progressive FIRE tiers: <strong>Coast FIRE</strong> (investments will grow to full retirement without adding another euro), <strong>Lean FIRE</strong> (covering absolute baseline living expenses), <strong>Barista FIRE</strong> (semi-retirement covering gaps with part-time work), and <strong>Full FIRE</strong> (complete financial independence). Additionally, the built-in <strong>Goal Pathfinder</strong> uses numerical bisection search to instantly calculate the exact monthly savings or retirement age required to satisfy any custom net worth goal.",
+    
+    "faq-q4": "How does the Model Context Protocol (MCP) server work?",
+    "faq-a4": "Wealth Horizon bundles a standalone native MCP server (<code>wealth-horizon-mcp</code>) directly inside the macOS app bundle — requiring no Node.js installation or compilation. By pointing Claude Desktop, Cursor, or any MCP client to the binary and your local sync file, you can query your portfolio, inspect forecast statistics, and simulate what-if scenarios directly in natural language (with support for an optional <code>--read-only</code> flag).",
+    
+    "faq-q5": "How do what-if scenarios and inheritance work?",
+    "faq-a5": "Wealth Horizon lets you create unlimited what-if scenarios branching off your baseline. Scenarios use clean inheritance: any field you don't explicitly override inherits seamlessly from your default inputs. You can compare a career transition, early sabbatical, market downturn, or property acquisition side-by-side against your base plan without corrupting your primary forecast or duplicating spreadsheets.",
+    
+    "faq-q6": "How does Wealth Horizon handle taxes, glide paths, and liabilities?",
+    "faq-a6": "Wealth Horizon includes a tax-aware drawdown engine tailored for European investors, modeling mechanisms like the German <em>Vorabpauschale</em>, <em>Sparerpauschbetrag</em> / <em>Teilfreistellung</em>, Dutch Box 3, and capital gains tax gross-ups. On the asset side, it features dynamic equity-to-bond glide paths and an actionable <strong>4-Pillar waterfall framework</strong> (Emergency Reserve, Stability & Cash Flow, Medium-term Bonds, and Long-term Growth) ensuring upcoming liabilities are protected before equities are liquidated.",
+
     "footer-nav-install": "macOS Install Guide",
+    "footer-nav-faq": "FAQ",
     "footer-nav-source": "GitHub Repository",
     "footer-nav-releases": "Releases & Changelog",
     "footer-copyright": "© 2026 Wealth Horizon. Developed by <a href=\"https://github.com/vittoriom\" target=\"_blank\" rel=\"noopener noreferrer\">Vittorio Monaco</a>.",
@@ -239,6 +268,11 @@ window.translations = {
     "comp-goals-ss": "Semplici formule della regola del 4% o la funzione Ricerca Obiettivo di Excel, lenta e fragile",
     "comp-goals-cs": "Semplici barre di avanzamento verso cifre statiche di patrimonio",
     
+    "comp-education": "Educazione Finanziaria e Guida",
+    "comp-education-wh": "Tour interattivo in 7 passaggi, wizard profiler principiante/avanzato, guida all'allocazione a 4 pilastri e spiegazioni IA integrate",
+    "comp-education-ss": "Nessuna guida; richiede approfondite competenze finanziarie pregresse e formule create da zero",
+    "comp-education-cs": "Articoli generici di blog e consigli di budget; privo di educazione strutturata al FIRE e guida metodologica",
+    
     "comp-tax": "Motore Fiscale e Prelievi",
     "comp-tax-wh": "Motore fiscale multigiurisdizione (Vorabpauschale, Box 3 olandese, gross-up plusvalenze)",
     "comp-tax-ss": "Manutenzione manuale delle formule fiscali; si rompe ad ogni riforma",
@@ -282,7 +316,31 @@ window.translations = {
     "footer-nav-features": "Funzionalità dell'App",
     "footer-nav-simulator": "Simulatore Interattivo",
     "footer-nav-compare": "Perché Wealth Horizon",
+    /* FAQ */
+    "nav-faq": "FAQ",
+    "faq-badge": "Hai Domande?",
+    "faq-title": "Domande Frequenti",
+    "faq-subtitle": "Tutto quello che c'è da sapere su privacy, simulazioni Monte Carlo, tassazione e integrazione con l'IA.",
+    "faq-q1": "Dove sono memorizzati i miei dati finanziari e quanto sono protetti?",
+    "faq-a1": "Il 100% dei tuoi dati finanziari rimane esclusivamente sul tuo dispositivo. Wealth Horizon non richiede la registrazione di alcun account, nessun login cloud e non si collega mai ad aggregatori bancari esterni (come Plaid o Yodlee). Il tuo portafoglio, le tue attività, le passività e i modelli di scenario sono salvati nello storage locale del tuo browser o dell'app desktop. Puoi anche abilitare la <strong>Sincronizzazione su File Locale</strong> per mantenere un file di stato JSON su disco (o su cartelle personali come Dropbox/iCloud) con zero telemetria.",
+    
+    "faq-q2": "Come funziona la simulazione Monte Carlo e cosa significa \"in termini reali\"?",
+    "faq-a2": "A differenza dei semplici calcolatori che ipotizzano una crescita lineare irrealistica, Wealth Horizon esegue <strong>oltre 500 iterazioni stocastiche Monte Carlo</strong> tramite un PRNG deterministico (Mulberry32) per simulare la volatilità dei mercati e il rischio di sequenza dei rendimenti. Inoltre, <strong>tutte le proiezioni sono calcolate in termini reali</strong> (a potere d'acquisto costante). I rendimenti e i flussi di cassa futuri sono deflazionati rispetto all'inflazione tramite l'equazione di Fisher: un obiettivo di 1.000.000 € a 60 anni rappresenta esattamente il potere d'acquisto odierno di 1.000.000 €.",
+    
+    "faq-q3": "Quali traguardi FIRE e obiettivi traccia Wealth Horizon?",
+    "faq-a3": "Il motore confronta automaticamente la tua traiettoria con quattro livelli progressivi di FIRE: <strong>Coast FIRE</strong> (il capitale accumulato crescerà fino alla pensione senza ulteriori versamenti), <strong>Lean FIRE</strong> (copertura delle sole spese essenziali di base), <strong>Barista FIRE</strong> (semi-pensionamento integrato da un lavoro part-time flessibile) e <strong>Full FIRE</strong> (completa indipendenza finanziaria). Inoltre, il <strong>Goal Pathfinder</strong> integrato sfrutta un algoritmo di bisezione numerica per calcolare istantaneamente il risparmio mensile esatto o l'età di pensionamento necessari per raggiungere qualsiasi obiettivo.",
+    
+    "faq-q4": "Come funziona l'integrazione con il server Model Context Protocol (MCP)?",
+    "faq-a4": "Wealth Horizon include un server MCP nativo e autonomo (<code>wealth-horizon-mcp</code>) all'interno del bundle macOS, senza richiedere l'installazione di Node.js o passaggi di compilazione. Configurando Claude Desktop, Cursor o qualsiasi client MCP con il file binario e il file di sincronizzazione locale, puoi consultare il portafoglio, analizzare le statistiche di previsione e simulare scenari What-If in linguaggio naturale (con supporto alla modalità <code>--read-only</code>).",
+    
+    "faq-q5": "Come funzionano gli scenari What-If e l'ereditarietà dei parametri?",
+    "faq-a5": "Wealth Horizon ti permette di creare infiniti scenari what-if ramificati dal piano di base. Gli scenari sfruttano un'ereditarietà dinamica: qualsiasi parametro non modificato esplicitamente eredita i valori predefiniti. In questo modo puoi confrontare affiancati una transizione di carriera, un anno sabbatico, una correzione di mercato o l'acquisto di una casa senza alterare il piano principale né duplicare complessi fogli di calcolo.",
+    
+    "faq-q6": "Come vengono gestiti il calcolo fiscale europeo, i glide path e l'allocazione patrimoniale?",
+    "faq-a6": "Wealth Horizon integra un motore di prelievo fiscale ottimizzato per investitori europei, modellando regimi come la <em>Vorabpauschale</em> tedesca, <em>Sparerpauschbetrag</em> / <em>Teilfreistellung</em>, il Box 3 olandese e la tassazione sulle plusvalenze. Sul fronte degli investimenti, include glide path dinamici tra azioni e obbligazioni e una <strong>guida a 4 pilastri</strong> (Fondo di Emergenza, Liquidità a Breve, Obbligazioni a Medio Termine e Crescita Azionaria) per garantire la copertura dei flussi di spesa a breve termine senza svendere quote azionarie.",
+
     "footer-nav-install": "Guida Installazione macOS",
+    "footer-nav-faq": "FAQ",
     "footer-nav-source": "Repository GitHub",
     "footer-nav-releases": "Release & Changelog",
     "footer-copyright": "© 2026 Wealth Horizon. Sviluppato da <a href=\"https://github.com/vittoriom\" target=\"_blank\" rel=\"noopener noreferrer\">Vittorio Monaco</a>.",

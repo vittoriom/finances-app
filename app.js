@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReleaseFetcher();
   initFIRESimulator();
   initAccordion();
+  initFaqAccordion();
 });
 
 // ============================================================
@@ -366,3 +367,33 @@ function initAccordion() {
     }
   });
 }
+
+// ============================================================
+// 4. Interactive FAQ Accordion
+// ============================================================
+function initFaqAccordion() {
+  const headers = document.querySelectorAll('.faq-item-header');
+
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.closest('.faq-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('active');
+
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const icon = i.querySelector('.faq-toggle-icon');
+        if (icon) icon.textContent = '+';
+      });
+
+      // Toggle current item
+      if (!isOpen) {
+        item.classList.add('active');
+        const icon = item.querySelector('.faq-toggle-icon');
+        if (icon) icon.textContent = '−';
+      }
+    });
+  });
+}
+
